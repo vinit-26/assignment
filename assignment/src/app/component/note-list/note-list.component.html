@@ -1,0 +1,16 @@
+<input (keyup)="getData($event)" class="form-control" [(ngModel)]="noteValue" value="" type="text" name="name" placeholder="note text goes here">
+<hr>
+<h3>Note List</h3>
+<div class="col-md-12" *ngIf="noteListArr.length !== 0">
+        <div class="col-md-6">
+            <ol>
+                <li *ngFor="let note of noteListArr; let i = index">
+                    {{ note }}&nbsp;! &nbsp; <button class="btn btn-danger btn-sm m-2" (click)="deleteNote(i)">Delete<i class="fa fa-trash ml-2" aria-hidden="true"></i></button>
+                </li>
+            </ol>
+        </div>
+</div>
+
+<div *ngIf="noteListArr.length === 0" class="col-md-12">
+    <p class="text-center">Add some notes to see them here!</p>
+</div>
